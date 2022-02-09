@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./Home";
+import NavBar from "./NavBar";
+import Reviews from "./Reviews";
+import Books from "./Books";
+import FormPage from "./FormPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9292/books")
+      .then((response) => response.json())
+      .then((data) => {
+        setBooks(data);
+      });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <br />
+      <Route path="/reviews">
+        <Reviews />
+      </Route>
+      <Route path="/books">
+        <Books books={books} />
+      </Route>
+      <Route path="/formpage">
+        <FormPage />
+      </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
     </div>
   );
 }
