@@ -16,14 +16,7 @@ const FormPage = () => {
     <div>
       <form className="form">
         <h5>Add new users or books here: </h5>
-        <input
-          type="text"
-          placeholder="User Name"
-          name="user"
-          value={newBook.user}
-          onChange={handleChange}
-        ></input>
-        <br />
+
         <input
           type="text"
           placeholder="Book Title"
@@ -40,13 +33,13 @@ const FormPage = () => {
           onChange={handleChange}
         ></input>
         <br />
-        <input
+        <textarea
           type="text"
           placeholder="Review"
           name="review"
           value={newBook.review}
           onChange={handleChange}
-        ></input>
+        ></textarea>
 
         <br />
         <input className="button" type="submit" />

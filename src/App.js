@@ -4,13 +4,14 @@ import NavBar from "./NavBar";
 import Reviews from "./Reviews";
 import Books from "./Books";
 import FormPage from "./FormPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function App() {
   const [books, setBooks] = useState([]);
+
   useEffect(() => {
-    fetch("http://localhost:9292/books")
+    fetch(`http://localhost:9292/books`)
       .then((response) => response.json())
       .then((data) => {
         setBooks(data);
