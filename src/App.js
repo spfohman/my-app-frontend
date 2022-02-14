@@ -29,11 +29,12 @@ function App() {
   const booksToDisplay = books.filter((book) => {
     return book.title.toLowerCase().includes(searchTerm.toLowerCase());
   });
+
   return (
     <div className="App">
       <NavBar />
       <br />
-      <SearchBar searchTerm={searchTerm} OnSearchChange={setSearchTerm} />
+      <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
       <Route path="/books">
         <Books books={booksToDisplay} addReview={addReview} />
       </Route>

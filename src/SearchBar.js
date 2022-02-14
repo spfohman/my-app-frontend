@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchBar = ({ searchTerm, OnSearchChange }) => {
+const SearchBar = ({ searchTerm, onSearch }) => {
   return (
     <div>
       <input
@@ -8,7 +8,7 @@ const SearchBar = ({ searchTerm, OnSearchChange }) => {
         id="search"
         value={searchTerm}
         placeholder="What book do you want to look for?"
-        onChange={(e) => onSearchChange(e.target.value)}
+        onChange={(e) => onSearch(e.target.value)}
       />
     </div>
   );
