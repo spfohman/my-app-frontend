@@ -8,9 +8,6 @@ function NavBar() {
         <NavLink to="/">
           <button className="button">Home</button>
         </NavLink>
-        <NavLink to="/reviews">
-          <button className="button">Reviews</button>
-        </NavLink>
         <NavLink to="/books">
           <button className="button">Books</button>
         </NavLink>

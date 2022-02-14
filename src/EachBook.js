@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddReview from "./AddReview";
 
 const EachBook = ({ book }) => {
   const [displayReview, setDisplayReview] = useState(false);
@@ -16,7 +17,9 @@ const EachBook = ({ book }) => {
       <button className="button" onClick={showReview}>
         {displayReview ? "Hide Reviews" : "Show Reviews"}
       </button>
+
       {displayReview ? <p>{book.reviews[0].text}</p> : null}
+      <AddReview />
       <hr />
     </div>
   );
