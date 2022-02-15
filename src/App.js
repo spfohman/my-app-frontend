@@ -5,7 +5,6 @@ import Books from "./Books";
 import FormPage from "./FormPage";
 import { Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import SearchBar from "./SearchBar";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -34,9 +33,15 @@ function App() {
     <div className="App">
       <NavBar />
       <br />
-      <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
+
       <Route path="/books">
-        <Books books={booksToDisplay} addReview={addReview} />
+        <Books
+          addReview={addReview}
+          books={books}
+          books={booksToDisplay}
+          searchTerm={searchTerm}
+          onSearch={setSearchTerm}
+        />
       </Route>
       <Route path="/formpage">
         <FormPage addBooks={addBooks} />
