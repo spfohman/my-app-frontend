@@ -17,13 +17,22 @@ function App() {
         setBooks(data);
       });
   }, []);
+
   function addBooks(newBook) {
     const updatedBooks = [...books, newBook];
     setBooks(updatedBooks);
   }
+
   function addReview(newReview) {
     const updatedReview = [...reviews, newReview];
     setReviews(updatedReview);
+  }
+
+  function handleUpdateLikes(updateLikes) {
+    const updatedLikes = books.map((book) => {
+      return book.id === updateLikes.id ? updateLikes : book;
+    });
+    setBooks(updatedLikes);
   }
   const booksToDisplay = books.filter((book) => {
     return book.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -33,9 +42,9 @@ function App() {
     <div className="App">
       <NavBar />
       <br />
-
       <Route path="/books">
         <Books
+          handleUpdateLikes={handleUpdateLikes}
           addReview={addReview}
           books={books}
           books={booksToDisplay}

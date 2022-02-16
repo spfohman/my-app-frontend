@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const FormPage = ({ addBooks }) => {
+  let history = useHistory();
   const [newBook, setNewBook] = useState({
     title: "",
     author: "",
@@ -33,11 +35,12 @@ const FormPage = ({ addBooks }) => {
       author: "",
       likes: 0,
     });
+    history.push("/books");
   }
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-        <h5>Add new books here: </h5>
+        <h4>Add new books here: </h4>
 
         <input
           type="text"
@@ -58,7 +61,10 @@ const FormPage = ({ addBooks }) => {
 
         <input className="button" type="submit" />
       </form>
-      <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"></img>
+      <img
+        alt="book"
+        src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      ></img>
     </div>
   );
 };

@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 
-const AddReview = ({ addReview }) => {
-  const [newReview, setNewReview] = useState([]);
+const AddReview = ({ addReview, book }) => {
+  const [newReview, setNewReview] = useState({
+    text: "",
+    book_id: book.id,
+  });
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setNewReview({ ...newReview, [name]: value });
-    console.log(newReview);
-    console.log(newReview.book_id);
   };
   function handleSubmit(e) {
-    e.preventDefault();
-    console.log(newReview);
     const addNewReview = {
-      text: newReview.review,
+      text: newReview.text,
       book_id: newReview.book_id,
     };
 
-    fetch(`http://localhost:9292/reviews`, {
+    fetch(`http://localhost:9292/books/${book.id}/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +27,7 @@ const AddReview = ({ addReview }) => {
       .then((response) => response.json())
       .then(addReview);
     setNewReview({
-      review: "",
+      text: "",
       book_id: newReview.book_id,
     });
   }
@@ -40,8 +39,8 @@ const AddReview = ({ addReview }) => {
         <textarea
           type="text"
           placeholder="Review"
-          name="review"
-          value={newReview.review}
+          name="text"
+          value={newReview.text}
           onChange={handleChange}
         ></textarea>
 
