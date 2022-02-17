@@ -7,6 +7,8 @@ const Books = ({
   searchTerm,
   onSearch,
   handleUpdateLikes,
+  handleDeleteReview,
+  reviews,
 }) => {
   const bookList = books.map((book) => (
     <EachBook
@@ -14,6 +16,8 @@ const Books = ({
       book={book}
       addReview={addReview}
       handleUpdateLikes={handleUpdateLikes}
+      handleDeleteReview={handleDeleteReview}
+      reviews={reviews}
     />
   ));
 

@@ -16,23 +16,36 @@ function App() {
       .then((data) => {
         setBooks(data);
       });
+    fetch(`http://localhost:9292/reviews`)
+      .then((response) => response.json())
+      .then((data) => {
+        setReviews(data);
+      });
   }, []);
 
   function addBooks(newBook) {
-    const updatedBooks = [...books, newBook];
+    const updatedBooks = [newBook, ...books];
     setBooks(updatedBooks);
   }
 
   function addReview(newReview) {
-    const updatedReview = [...reviews, newReview];
+    const updatedReview = [newReview, ...reviews];
     setReviews(updatedReview);
   }
 
   function handleUpdateLikes(updateLikes) {
     const updatedLikes = books.map((book) => {
+      console.log("inside like click handle");
       return book.id === updateLikes.id ? updateLikes : book;
     });
     setBooks(updatedLikes);
+  }
+  function handleDeleteReview(updateReview) {
+    const updatedReview = reviews.map((review) => {
+      console.log("inside handle delete review");
+      return review.id !== updateReview;
+    });
+    setReviews(updatedReview);
   }
   const booksToDisplay = books.filter((book) => {
     return book.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -50,6 +63,8 @@ function App() {
           books={booksToDisplay}
           searchTerm={searchTerm}
           onSearch={setSearchTerm}
+          handleDeleteReview={handleDeleteReview}
+          reviews={reviews}
         />
       </Route>
       <Route path="/formpage">

@@ -2,13 +2,14 @@
   text-align: center;
 }
 hr {
-  width: 50%;
+  width: 45%;
+  border: 1px solid;
   color: #17264f;
 }
 .button {
   margin: 10px;
-  height: 30px;
-  width: 15%;
+  height: 40px;
+  width: 20%;
   border-radius: 5px;
   color: darkslateblue;
   font-family: Arial, Helvetica, sans-serif;
@@ -22,23 +23,23 @@ hr {
   width: 100%;
   text-align: center;
   overflow: visible;
-  height: 50px;
+  height: 60px;
   background-color: #17264f;
 
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
 }
 body {
-  background-color: rgba(184, 181, 181, 0.377);
+  background-color: rgba(206, 204, 204, 0.377);
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: #17264f;
   text-align: center;
   border-style: solid;
-  border-color: #a77c86;
+  border-color: rgb(183, 214, 199);
   border-width: 4px;
-  margin: 60px;
+  margin: 70px;
   margin-bottom: 15px;
 }
 input {
@@ -53,4 +54,13 @@ textarea {
 }
 img {
   border-radius: 25%;
+}
+.bookCard {
+  border-radius: 20px;
+  max-width: 60%;
+  height: 100%;
+  text-align: center;
+  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgb(180, 180, 180);
 }
