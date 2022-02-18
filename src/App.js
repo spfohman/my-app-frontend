@@ -32,16 +32,19 @@ function App() {
     const updatedReview = [newReview, ...reviews];
     setReviews(updatedReview);
   }
-
+  console.log(reviews);
   function handleUpdateLikes(id) {
+    console.log(id.id);
     const updatedLikes = books.map((book) => {
+      console.log(book.id);
       return book.id === id.id ? id : book;
     });
     setBooks(updatedLikes);
   }
   function handleDeleteReview(id) {
-    const updatedReview = reviews.map((review) => {
-      return review.id !== id;
+    const updatedReview = reviews.filter((review) => {
+      console.log(review.id);
+      return review.id !== id.id;
     });
     setReviews(updatedReview);
   }

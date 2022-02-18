@@ -8,7 +8,7 @@ const Books = ({
   searchTerm,
   onSearch,
   handleUpdateLikes,
-  // handleDeleteReview,
+  handleDeleteReview,
   reviews,
 }) => {
   const bookList = booksToDisplay.map((book) => (
@@ -17,7 +17,7 @@ const Books = ({
       book={book}
       addReview={addReview}
       handleUpdateLikes={handleUpdateLikes}
-      // handleDeleteReview={handleDeleteReview}
+      handleDeleteReview={handleDeleteReview}
       reviews={reviews}
     />
   ));
