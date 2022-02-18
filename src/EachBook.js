@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import AddReview from "./AddReview";
 
-const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
+const EachBook = ({ book, handleUpdateLikes, handleDeleteReview }) => {
   const [displayReview, setDisplayReview] = useState(false);
+
   const showReview = (event) => {
     event.preventDefault();
     setDisplayReview(!displayReview);
@@ -23,7 +24,7 @@ const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
       .then(handleUpdateLikes);
   }
   function deleteReview(id) {
-    console.log(book.reviews[0]);
+    // console.log(book.reviews.id);
     fetch(`http://localhost:9292/reviews/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -31,11 +32,10 @@ const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
       .then((response) => response.json())
       .then(handleDeleteReview);
   }
-
+  // book.reviews?.map
   const eachReview = book.reviews?.map((review) => (
     <li key={review.id}>
-      {console.log(review.id)}
-      <button onClick={deleteReview}>✖ </button> {review.text}
+      <button onClick={() => deleteReview(review.id)}>✖ </button> {review.text}
     </li>
   ));
 
@@ -53,12 +53,7 @@ const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
           {displayReview ? "Hide Reviews" : "Show Reviews"}
         </button>
 
-        {displayReview ? (
-          <p>
-            {eachReview}
-            {/* <button onClick={deleteReview}>Delete Review</button> */}
-          </p>
-        ) : null}
+        {displayReview ? <p>{eachReview}</p> : null}
         <AddReview book={book} />
       </div>
       <hr />

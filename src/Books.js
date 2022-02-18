@@ -2,21 +2,22 @@ import EachBook from "./EachBook";
 import SearchBar from "./SearchBar";
 
 const Books = ({
-  books,
+  // books,
+  booksToDisplay,
   addReview,
   searchTerm,
   onSearch,
   handleUpdateLikes,
-  handleDeleteReview,
+  // handleDeleteReview,
   reviews,
 }) => {
-  const bookList = books.map((book) => (
+  const bookList = booksToDisplay.map((book) => (
     <EachBook
       key={book.id}
       book={book}
       addReview={addReview}
       handleUpdateLikes={handleUpdateLikes}
-      handleDeleteReview={handleDeleteReview}
+      // handleDeleteReview={handleDeleteReview}
       reviews={reviews}
     />
   ));

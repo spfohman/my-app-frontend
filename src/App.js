@@ -33,17 +33,15 @@ function App() {
     setReviews(updatedReview);
   }
 
-  function handleUpdateLikes(updateLikes) {
+  function handleUpdateLikes(id) {
     const updatedLikes = books.map((book) => {
-      console.log("inside like click handle");
-      return book.id === updateLikes.id ? updateLikes : book;
+      return book.id === id.id ? id : book;
     });
     setBooks(updatedLikes);
   }
-  function handleDeleteReview(updateReview) {
+  function handleDeleteReview(id) {
     const updatedReview = reviews.map((review) => {
-      console.log("inside handle delete review");
-      return review.id !== updateReview;
+      return review.id !== id;
     });
     setReviews(updatedReview);
   }
@@ -60,7 +58,7 @@ function App() {
           handleUpdateLikes={handleUpdateLikes}
           addReview={addReview}
           books={books}
-          books={booksToDisplay}
+          booksToDisplay={booksToDisplay}
           searchTerm={searchTerm}
           onSearch={setSearchTerm}
           handleDeleteReview={handleDeleteReview}
