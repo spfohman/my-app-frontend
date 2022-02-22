@@ -16,11 +16,6 @@ function App() {
       .then((data) => {
         setBooks(data);
       });
-    fetch(`http://localhost:9292/reviews`)
-      .then((response) => response.json())
-      .then((data) => {
-        setReviews(data);
-      });
   }, []);
 
   function addBooks(newBook) {
@@ -32,22 +27,30 @@ function App() {
     const updatedReview = [newReview, ...reviews];
     setReviews(updatedReview);
   }
-  console.log(reviews);
-  function handleUpdateLikes(id) {
-    console.log(id.id);
+
+  function handleUpdateLikes(updateLikes) {
     const updatedLikes = books.map((book) => {
-      console.log(book.id);
-      return book.id === id.id ? id : book;
+      return book.id === updateLikes.id ? updateLikes : book;
     });
     setBooks(updatedLikes);
   }
-  function handleDeleteReview(id) {
-    const updatedReview = reviews.filter((review) => {
-      console.log(review.id);
-      return review.id !== id.id;
+  function handleDeleteReview(deletedReview) {
+    const bookToUpdate = books.find((book) => {
+      return book.id === deletedReview.book_id;
     });
+
+    const updatedReview = bookToUpdate.reviews.filter((review) => {
+      return review.id !== deletedReview.id;
+    });
+    // find book that owns the review
+    // replace books review with updated reviews
+    bookToUpdate.reviews = updatedReview;
+    setBooks(
+      books.map((book) => (book.id === bookToUpdate.id ? bookToUpdate : book))
+    );
     setReviews(updatedReview);
   }
+
   const booksToDisplay = books.filter((book) => {
     return book.title.toLowerCase().includes(searchTerm.toLowerCase());
   });

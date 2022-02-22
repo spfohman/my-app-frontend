@@ -8,6 +8,7 @@ const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
     event.preventDefault();
     setDisplayReview(!displayReview);
   };
+
   function updateLikes() {
     const addLikes = {
       likes: book.likes + 1,
@@ -25,20 +26,19 @@ const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
   }
 
   function deleteReview(id) {
-    console.log(id);
     fetch(`http://localhost:9292/reviews/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => response.json())
-      .then(handleDeleteReview);
+      .then((data) => handleDeleteReview(data));
   }
-  // book.reviews?.map
-  console.log(reviews);
+
   const eachReview = book.reviews?.map((review) => (
     <li key={review.id}>
-      {console.log(review.id)}
-      <button onClick={() => deleteReview(review.id)}>✖ </button> {review.text}
+      {review.text}
+      <br />
+      <button onClick={() => deleteReview(review.id)}>Delete Review </button>
     </li>
   ));
 
