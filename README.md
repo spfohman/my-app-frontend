@@ -1,6 +1,16 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created for phase 3 at Flatiron school. This was built using React, JavaScript, Ruby, Sinatra, HTML, and CSS. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The goal of this project was to incorporate previous React knowledge for a front end app, with new skills to create a backend server. 
+
+With this app the user will come to a landing page with a description about what the app does. This app is used to track books. A user can add a book, like the book, and add a review. The user can click on the "Books" button which will navigate them to a page showing the list of rendered books. Each book is rendered in a <div> showing the author, title, a like button with the number of likes, a button to choose whether to show or hide the book's reviews, an input field where reviews can be added with a submit button. The list of reviews then also has a button and the user can click this to delete a review. 
+  
+The next navigation button is "Add New Books". If clicked the user will transfer to a page where they can add a new book with a title and author. When the submit button is clicked, they are redirected back to the page of rendered books, with the new book added. 
+
+There are two images in the app, both are from [Link](https://unsplash.com/). 
+  
+Right now in order to run the application, npm start must be run from the "my-app-frontend" directory for the front end. To start the backend, bundle exec rake server must be run from the backend directory. 
 
 ## Available Scripts
 
