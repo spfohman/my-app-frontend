@@ -4,7 +4,7 @@ This project was created for phase 3 at Flatiron school. This was built using Re
 
 The goal of this project was to incorporate previous React knowledge for a front end app, with new skills to create a backend server. 
 
-With this app the user will come to a landing page with a description about what the app does. This app is used to track books. A user can add a book, like the book, and add a review. The user can click on the "Books" button which will navigate them to a page showing the list of rendered books. Each book is rendered in a <div> showing the author, title, a like button with the number of likes, a button to choose whether to show or hide the book's reviews, an input field where reviews can be added with a submit button. The list of reviews then also has a button and the user can click this to delete a review. 
+With this app the user will come to a landing page with a description about what the app does. This app is used to track books. A user can add a book, like the book, and add a review. The user can click on the "Books" button which will navigate them to a page showing the list of rendered books. Each book is rendered in a div showing the author, title, a like button with the number of likes, a button to choose whether to show or hide the book's reviews, an input field where reviews can be added with a submit button. The list of reviews then also has a button and the user can click this to delete a review. 
 
 At the top of the books list page there is also a feature where the user can type in a book title and the list of books will be filtered to find the book the user is looking for. 
   
