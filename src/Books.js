@@ -2,9 +2,9 @@ import EachBook from "./EachBook";
 import SearchBar from "./SearchBar";
 
 const Books = ({
-  // books,
   booksToDisplay,
   addReview,
+
   searchTerm,
   onSearch,
   handleUpdateLikes,

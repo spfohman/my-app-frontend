@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import AddReview from "./AddReview";
 
-const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
+const EachBook = ({
+  book,
+  handleUpdateLikes,
+  handleDeleteReview,
+
+  addReview,
+}) => {
   const [displayReview, setDisplayReview] = useState(false);
 
   const showReview = (event) => {
@@ -35,10 +41,12 @@ const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
   }
 
   const eachReview = book.reviews?.map((review) => (
-    <li key={review.id}>
+    <li className="noBullet" key={review.id}>
+      {/* <br /> */}
+      <button className="deleteButton" onClick={() => deleteReview(review.id)}>
+        ✖{" "}
+      </button>
       {review.text}
-      <br />
-      <button onClick={() => deleteReview(review.id)}>Delete Review </button>
     </li>
   ));
 
@@ -57,7 +65,7 @@ const EachBook = ({ book, handleUpdateLikes, handleDeleteReview, reviews }) => {
         </button>
 
         {displayReview ? <ul>{eachReview}</ul> : null}
-        <AddReview book={book} />
+        <AddReview book={book} addReview={addReview} />
       </div>
       <hr />
     </>

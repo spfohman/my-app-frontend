@@ -38,7 +38,7 @@ body {
   color: #17264f;
   text-align: center;
   border-style: solid;
-  border-color: rgb(183, 214, 199);
+  border-color: rgb(105, 122, 112);
   border-width: 4px;
   margin: 70px;
   margin-bottom: 15px;
@@ -68,4 +68,15 @@ img {
 .bookCard:hover {
   background-color: rgb(105, 122, 112);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+}
+.noBullet {
+  list-style-type: none;
+}
+.deleteButton {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  justify-self: auto;
+  margin-right: 20px;
+  font-weight: bold;
 }

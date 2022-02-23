@@ -12,6 +12,9 @@ const AddReview = ({ addReview, book }) => {
     setNewReview({ ...newReview, [name]: value });
   };
   function handleSubmit(e) {
+    e.preventDefault();
+    console.log(newReview);
+
     const addNewReview = {
       text: newReview.text,
       book_id: newReview.book_id,
@@ -25,7 +28,7 @@ const AddReview = ({ addReview, book }) => {
       body: JSON.stringify(addNewReview),
     })
       .then((response) => response.json())
-      .then(addReview);
+      .then((data) => addReview(data));
     setNewReview({
       text: "",
       book_id: newReview.book_id,
