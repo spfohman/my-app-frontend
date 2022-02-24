@@ -13,7 +13,6 @@ const AddReview = ({ addReview, book }) => {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(newReview);
 
     const addNewReview = {
       text: newReview.text,

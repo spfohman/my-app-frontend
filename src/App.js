@@ -24,8 +24,17 @@ function App() {
   }
 
   function addReview(newReview) {
-    const updatedReview = [newReview, ...reviews];
-    setReviews(updatedReview);
+    const bookToUpdate = books.find((book) => {
+      return book.id === newReview.book_id;
+    });
+
+    const updatedReviews = [newReview, ...bookToUpdate.reviews];
+    bookToUpdate.reviews = updatedReviews;
+    setBooks(
+      books.map((book) => (book.id === bookToUpdate.id ? bookToUpdate : book))
+    );
+
+    setReviews(updatedReviews);
   }
 
   function handleUpdateLikes(updateLikes) {
@@ -42,8 +51,7 @@ function App() {
     const updatedReview = bookToUpdate.reviews.filter((review) => {
       return review.id !== deletedReview.id;
     });
-    // find book that owns the review
-    // replace books review with updated reviews
+
     bookToUpdate.reviews = updatedReview;
     setBooks(
       books.map((book) => (book.id === bookToUpdate.id ? bookToUpdate : book))
